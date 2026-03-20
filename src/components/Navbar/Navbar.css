@@ -1,0 +1,87 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.iconCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.iconCircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.leftGroup span {
+  font-size: 0.75em;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  list-style: none;
+}
+
+.navbar-links a {
+  padding: 0.5em 1.3em;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 200;
+  font-size: 0.875em;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a.active {
+  background-color: var(--highlight);
+  color: var(--highlight-text);
+}
+
+.navbar-links a:not(.active):hover {
+  background-color: rgba(40, 69, 214, 0.1);
+}
+
+.modeToggle {
+  background-color: var(--bg-color);
+  /* border: 1px solid var(--text-color);
+  padding: 0.3em 0.5em;
+  border-radius: 10%; */
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.toggleIcon {
+  width: 30px;
+  height: 30px;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.modeToggle:hover .toggleIcon {
+  transform: rotate(20deg) scale(1.1);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
