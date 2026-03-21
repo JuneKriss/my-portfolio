@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
+import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import "./App.css";
+
 import Navbar from "./components/Navbar/Navbar";
 
+import catIcon from "./assets/catIcon.png";
 import blob from "./assets/blob.png";
 import prog1 from "./assets/prog1.svg";
 import prog2 from "./assets/prog2.svg";
@@ -53,7 +57,7 @@ function App() {
   return (
     <>
       <Navbar isLight={isLight} setIsLight={setIsLight} />
-      <section className="heroSection">
+      <section className="heroSection" id="home">
         <div className="heroContent">
           <div className="heroTexts">
             <div className="group">
@@ -76,7 +80,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section>
+      <section id="about">
         <div className="aboutContent">
           <div className="leftContent">
             <h1>About</h1>
@@ -226,7 +230,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section>
+      <section id="projects">
         <div className="projectsContent">
           <div className="leftContent">
             <h1>Projects</h1>
@@ -288,6 +292,33 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section id="footer">
+        <div className="footer">
+          <div className="leftGroup">
+            <div className="iconCircle">
+              <img src={catIcon} alt="Cat Icon" />
+            </div>
+            <span>June Kriss Avanzado</span>
+          </div>
+          <div className="rightGroup">
+            <a href="#">
+              <FaLinkedin />
+            </a>
+            <a href="#">
+              <FaGithub />
+            </a>
+            <a href="#">
+              <MdEmail />
+            </a>
+            <a href="#">
+              <FaFacebook />
+            </a>
+            <a href="#">
+              <FaInstagram />
+            </a>
           </div>
         </div>
       </section>

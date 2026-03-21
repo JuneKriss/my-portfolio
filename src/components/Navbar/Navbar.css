@@ -48,13 +48,9 @@ nav {
   transition: all 0.3s ease;
 }
 
-.navbar-links a.active {
+.navbar-links a:hover {
   background-color: var(--highlight);
   color: var(--highlight-text);
-}
-
-.navbar-links a:not(.active):hover {
-  background-color: rgba(40, 69, 214, 0.1);
 }
 
 .modeToggle {
