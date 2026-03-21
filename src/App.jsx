@@ -10,18 +10,37 @@ import prog4 from "./assets/prog4.svg";
 import prog5 from "./assets/prog5.svg";
 import prog6 from "./assets/prog6.svg";
 
+import sample from "./assets/project-images/sample.jpg";
+import proj1 from "./assets/project-images/proj1.jpg";
+import proj2 from "./assets/project-images/proj2.jpg";
+import proj3 from "./assets/project-images/proj3.jpg";
+
 function App() {
-  const images = [prog1, prog2, prog3, prog4, prog5, prog6];
-  const [current, setCurrent] = useState(0);
+  const nextIndex = (prev, length) => (prev + 1) % length;
+
+  const heroImages = [prog1, prog2, prog3, prog4, prog5, prog6];
+  const [currentHeroImage, setCurrentHeroImage] = useState(0);
+
+  const projectImages = [proj1, proj2, proj3];
+  const [currentProjectImage, setCurrentProjectImage] = useState(0);
+
   const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 3000); // change image every 3 seconds
+      setCurrentHeroImage((prev) => nextIndex(prev, heroImages.length));
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProjectImage((prev) => nextIndex(prev, projectImages.length));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [projectImages.length]);
 
   useEffect(() => {
     if (isLight) {
@@ -47,11 +66,11 @@ function App() {
           </div>
           <div className="heroIllustration">
             <img src={blob} alt="Blob" className="blob" />
-            {images.map((img, index) => (
+            {heroImages.map((img, index) => (
               <img
                 key={index}
                 src={img}
-                className={`programming ${index === current ? "active" : ""}`}
+                className={`programming ${index === currentHeroImage ? "active" : ""}`}
               />
             ))}
           </div>
@@ -62,7 +81,7 @@ function App() {
           <div className="leftContent">
             <h1>About</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />{" "}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
               Phasellus vel pretium erat. Curabitur <br /> suscipit orci in leo
               consequat suscipit. <br /> Maecenas magna nulla, hendrerit eu
               facilisis porttitor, <br /> mollis iaculis ante.
@@ -201,6 +220,71 @@ function App() {
                     className={`devicon-mysql-plain ${isLight ? "colored" : ""}`}
                   ></i>
                   <span>MySQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="projectsContent">
+          <div className="leftContent">
+            <h1>Projects</h1>
+          </div>
+          <div className="rightContent">
+            <div className="projectCard">
+              <div className="cardLeft">
+                {projectImages.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    className={`projects ${index === currentProjectImage ? "active" : ""}`}
+                  />
+                ))}
+              </div>
+              <div className="cardRight">
+                <div className="smallImagesContainer">
+                  <div className="card">
+                    <img src={sample} alt="Project Image" />
+                    <div className="overlay">
+                      <span>View Project</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bottom">
+                  <p>Lorem ipsum dolor sit amet, consectetur</p>
+                  <button>
+                    <i className={`devicon-github-plain`}></i>
+                    <span>Github</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="projectCard">
+              <div className="cardLeft">
+                {projectImages.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    className={`projects ${index === currentProjectImage ? "active" : ""}`}
+                  />
+                ))}
+              </div>
+              <div className="cardRight">
+                <div className="smallImagesContainer">
+                  <div className="card">
+                    <img src={sample} alt="Project Image" />
+                    <div className="overlay">
+                      <span>View Project</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bottom">
+                  <p>Lorem ipsum dolor sit amet, consectetur</p>
+                  <button>
+                    <i className={`devicon-github-plain`}></i>
+                    <span>Github</span>
+                  </button>
                 </div>
               </div>
             </div>

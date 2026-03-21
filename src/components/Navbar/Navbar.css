@@ -33,7 +33,7 @@ nav {
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 1.5em;
   list-style: none;
 }
 
@@ -59,9 +59,6 @@ nav {
 
 .modeToggle {
   background-color: var(--bg-color);
-  /* border: 1px solid var(--text-color);
-  padding: 0.3em 0.5em;
-  border-radius: 10%; */
   border: none;
   background: none;
   cursor: pointer;
