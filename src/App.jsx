@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import "./App.css";
@@ -6,6 +6,8 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 
 import catIcon from "./assets/catIcon.png";
+import nyanCatGif from "./assets/nyan-cat.gif";
+
 import blob from "./assets/blob.png";
 import prog1 from "./assets/prog1.svg";
 import prog2 from "./assets/prog2.svg";
@@ -21,6 +23,7 @@ import proj3 from "./assets/project-images/proj3.jpg";
 
 function App() {
   const nextIndex = (prev, length) => (prev + 1) % length;
+  const footerRef = useRef(null);
 
   const heroImages = [prog1, prog2, prog3, prog4, prog5, prog6];
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
@@ -53,6 +56,23 @@ function App() {
       document.body.classList.remove("light");
     }
   }, [isLight]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          footerRef.current.classList.add("animate");
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -296,30 +316,35 @@ function App() {
         </div>
       </section>
       <section id="footer">
-        <div className="footer">
-          <div className="leftGroup">
-            <div className="iconCircle">
-              <img src={catIcon} alt="Cat Icon" />
+        <div className="footerWrapper" ref={footerRef}>
+          <div className="footer">
+            <div className="leftGroup">
+              <div className="iconCircle">
+                <img src={catIcon} alt="Cat Icon" />
+              </div>
+              <span>June Kriss Avanzado</span>
             </div>
-            <span>June Kriss Avanzado</span>
+
+            <div className="rightGroup">
+              <a href="#">
+                <FaLinkedin />
+              </a>
+              <a href="#">
+                <FaGithub />
+              </a>
+              <a href="#">
+                <MdEmail />
+              </a>
+              <a href="#">
+                <FaFacebook />
+              </a>
+              <a href="#">
+                <FaInstagram />
+              </a>
+            </div>
           </div>
-          <div className="rightGroup">
-            <a href="#">
-              <FaLinkedin />
-            </a>
-            <a href="#">
-              <FaGithub />
-            </a>
-            <a href="#">
-              <MdEmail />
-            </a>
-            <a href="#">
-              <FaFacebook />
-            </a>
-            <a href="#">
-              <FaInstagram />
-            </a>
-          </div>
+          <div className="footerCover"></div>
+          <img src={nyanCatGif} className="nyanCat" alt="nyan cat" />
         </div>
       </section>
     </>
