@@ -25,6 +25,9 @@ function App() {
   const nextIndex = (prev, length) => (prev + 1) % length;
   const footerRef = useRef(null);
 
+  const aboutRef = useRef(null);
+  const [isAboutVisible, setIsAboutVisible] = useState(false);
+
   const heroImages = [prog1, prog2, prog3, prog4, prog5, prog6];
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
 
@@ -59,17 +62,26 @@ function App() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          footerRef.current.classList.add("animate");
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          // ABOUT SECTION
+          if (entry.target === aboutRef.current) {
+            setIsAboutVisible(entry.isIntersecting);
+          }
+
+          // FOOTER SECTION
+          if (entry.target === footerRef.current) {
+            if (entry.isIntersecting) {
+              footerRef.current.classList.add("animate");
+            }
+          }
+        });
       },
       { threshold: 0.3 },
     );
 
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
+    if (aboutRef.current) observer.observe(aboutRef.current);
+    if (footerRef.current) observer.observe(footerRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -100,15 +112,23 @@ function App() {
           </div>
         </div>
       </section>
-      <section id="about">
+      <section
+        id="about"
+        ref={aboutRef}
+        className={isAboutVisible ? "show" : ""}
+      >
         <div className="aboutContent">
           <div className="leftContent">
             <h1>About</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-              Phasellus vel pretium erat. Curabitur <br /> suscipit orci in leo
-              consequat suscipit. <br /> Maecenas magna nulla, hendrerit eu
-              facilisis porttitor, <br /> mollis iaculis ante.
+              I’m a <strong>22-year-old developer</strong> based in
+              <strong> Iligan City, Philippines</strong>, with a strong interest
+              in building clean, user-focused web applications. I’m always
+              looking for ways to improve how I build—whether that’s refining my
+              code, learning new tools, or taking on projects that challenge me.
+              I value <strong> problem-solving</strong>,
+              <strong> continuous learning</strong>, and creating work that I
+              can be proud of.
             </p>
           </div>
           <div className="rightContent">
@@ -116,11 +136,13 @@ function App() {
               <h2>Education</h2>
               <div className="schoolContainer">
                 <div className="school">
-                  <h3>School</h3>
-                  <p>Address</p>
+                  <h3>Saint Michael's College</h3>
+                  <p>Quezon Ave., Iligan City</p>
                 </div>
-                <p>Bachelor</p>
-                <span>Year</span>
+                <p className="bachelor">
+                  Bachelor of Science in Information Technology
+                </p>
+                <span>2021 - 2025</span>
               </div>
             </div>
             <div className="experiencePart">
@@ -129,10 +151,12 @@ function App() {
                 <div className="experience">
                   <div className="company">
                     <div className="companyInfo">
-                      <h3>Position</h3>
-                      <p>Company</p>
+                      <h3>Front End Developer</h3>
+                      <p>
+                        Global Emergency Medical Registry — Contract (Remote)
+                      </p>
                     </div>
-                    <p>Year</p>
+                    <p>July 2025 - December 2025</p>
                   </div>
                   <ul>
                     <li>
@@ -149,10 +173,10 @@ function App() {
                 <div className="experience">
                   <div className="company">
                     <div className="companyInfo">
-                      <h3>Position</h3>
-                      <p>Company</p>
+                      <h3>Full-Stack Web Developer</h3>
+                      <p>Freelance (Thesis Project Client)</p>
                     </div>
-                    <p>Year</p>
+                    <p>August 2025 - February 2026</p>
                   </div>
                   <ul>
                     <li>
@@ -169,10 +193,10 @@ function App() {
                 <div className="experience">
                   <div className="company">
                     <div className="companyInfo">
-                      <h3>Position</h3>
-                      <p>Company</p>
+                      <h3>Web Developer Intern</h3>
+                      <p>Iligan Light & Power, Inc. (On-site)</p>
                     </div>
-                    <p>Year</p>
+                    <p>February 2025 - June 2025</p>
                   </div>
                   <ul>
                     <li>
