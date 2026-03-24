@@ -225,10 +225,12 @@ section {
 .techStackPart h2 {
   font-size: 1.5em;
   font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .educationPart .bachelor {
   font-size: 0.875em;
+  opacity: 0.65;
 }
 
 .educationPart span {
@@ -237,6 +239,8 @@ section {
 }
 
 .schoolContainer {
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  padding-left: 0.75rem;
   line-height: 1.7;
   transition:
     transform 0.2s ease,
@@ -252,19 +256,21 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  line-height: 1.6;
 }
 
 .school h3,
 .company h3 {
   font-size: 1.05em;
   font-weight: 600;
-  letter-spacing: -0.2px;
 }
 
 .school p,
 .company p {
   font-size: 0.85em;
   font-weight: 400;
+  opacity: 0.65;
+  white-space: nowrap;
 }
 
 .experienceContainer {
@@ -277,22 +283,37 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: all 0.25s ease;
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  padding-left: 0.75rem;
+}
+
+.experience:hover {
+  transform: translateX(6px);
 }
 
 .experience ul {
   line-height: 2;
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
 }
 
 .experience ul li {
-  font-size: 1em;
-  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+  opacity: 0.9;
+}
+
+.experience:hover li {
+  opacity: 1;
 }
 
 .stackContainer {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1rem 1.5rem;
 }
 
 .stack {
@@ -303,9 +324,15 @@ section {
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 0 0 auto;
-  gap: 0.5em;
+  gap: 0.6em;
+  transition: transform 0.2s ease;
+}
+
+.stack:hover {
+  transform: translateY(-4px);
+  cursor: default;
 }
 
 .stack span {

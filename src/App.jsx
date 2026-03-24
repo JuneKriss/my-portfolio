@@ -121,7 +121,7 @@ function App() {
           <div className="leftContent">
             <h1>About</h1>
             <p>
-              I’m a <strong>22-year-old developer</strong> based in
+              I’m a 22 years-old <strong>developer</strong> based in
               <strong> Iligan City, Philippines</strong>, with a strong interest
               in building clean, user-focused web applications. I’m always
               looking for ways to improve how I build—whether that’s refining my
@@ -160,13 +160,24 @@ function App() {
                   </div>
                   <ul>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Developed the frontend of a mobile AED Simulation app
+                      using React Native, creating interactive and responsive UI
+                      components
                     </li>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Implemented real-time ECG waveform visualization and
+                      multi-rhythm support (VFib, VTach, Asystole, Sinus) for
+                      training scenarios
+                    </li>
+
+                    <li>
+                      Designed a modular component architecture for scalability
+                      and maintainability, including waveform display, step
+                      tracker, and rhythm selection
                     </li>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Managed simulation flow and state using React Context and
+                      custom hooks for seamless user experience
                     </li>
                   </ul>
                 </div>
@@ -180,13 +191,18 @@ function App() {
                   </div>
                   <ul>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Developed a full-stack missing person reporting system
+                      with case reporting, police verification, and sightings
+                      management.
                     </li>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Built messaging and notification functionality to support
+                      interaction between users and authorities
                     </li>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Worked with a client and a development partner to build
+                      and deliver a complete reporting and monitoring system
+                      from concept to deployment
                     </li>
                   </ul>
                 </div>
@@ -200,13 +216,20 @@ function App() {
                   </div>
                   <ul>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Contributed to the development of an internal ticketing
+                      system using React, Django, and PostgreSQL
                     </li>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Built responsive user interfaces with Material-UI,
+                      improving usability across devices
                     </li>
                     <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Applied Redux for state management to handle dynamic data
+                      and improve application flow
+                    </li>
+                    <li>
+                      Collaborated with the team using GitLab for version
+                      control, issue tracking, and code reviews
                     </li>
                   </ul>
                 </div>
