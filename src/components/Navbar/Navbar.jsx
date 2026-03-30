@@ -1,31 +1,36 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import catIcon from "../../assets/catIcon.png";
+
 import { Sun, Moon } from "lucide-react";
+import { cats } from "../../assets/index.js";
 
 function Navbar({ isLight, setIsLight }) {
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav>
       <div className="leftGroup">
         <div className="iconCircle">
-          <img src={catIcon} alt="Cat Icon" />
+          <img src={cats.catIcon} alt="Cat Icon" />
         </div>
         <span>June Kriss Avanzado</span>
       </div>
       <ul className="navbar-links">
         <li>
-          <a href="#home" className="active">
-            Home
-          </a>
+          <Link to="/">Home</Link>
         </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
+        {location.pathname === "/" && (
+          <li>
+            <a href="#about">About</a>
+          </li>
+        )}
+        {location.pathname === "/" && (
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+        )}
         <li>
           <a href="#footer">Contacts</a>
         </li>

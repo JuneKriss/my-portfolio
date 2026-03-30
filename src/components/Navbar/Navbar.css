@@ -72,6 +72,14 @@ nav {
   transform: rotate(20deg) scale(1.1);
 }
 
+.modeToggle:active {
+  transform: scale(0.9);
+}
+
+.modeToggle:active .toggleIcon {
+  transform: rotate(0deg) scale(0.9);
+}
+
 .burger {
   display: none;
   flex-direction: column;

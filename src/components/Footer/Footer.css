@@ -1,0 +1,67 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rightGroup a svg {
+  font-size: 1.5em;
+  color: var(--text-color);
+  transition: all 0.25s ease;
+}
+
+.footerWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.footerCover {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-color);
+  z-index: 2;
+
+  transform: translateX(0%);
+}
+
+.footerWrapper.animate .footerCover {
+  animation: revealCover 3s linear forwards;
+}
+
+.nyanCat {
+  position: absolute;
+  top: 50%;
+  left: -200px;
+  width: 235px;
+  opacity: 0;
+  z-index: 3;
+  transform: translateY(-50%);
+}
+.footerWrapper.animate .nyanCat {
+  opacity: 1;
+  animation: nyanMove 3s linear forwards;
+}
+
+@keyframes nyanMove {
+  from {
+    left: -200px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes revealCover {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
