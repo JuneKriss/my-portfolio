@@ -11,7 +11,14 @@ section {
   padding: 8rem 1.5rem;
   opacity: 0;
   transform: translateY(40px);
-  animation: heroFadeIn 1s ease forwards;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.heroSection.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .heroContent {
@@ -36,7 +43,39 @@ section {
 
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.heroSection.animate .heroTexts span {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.heroSection.animate .heroTexts h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.heroSection.animate .heroTexts h1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.heroSection.animate .heroTexts h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.heroSection.animate .heroTexts p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
 }
 
 .heroTexts span {
@@ -71,6 +110,16 @@ section {
   width: 30%;
   height: 700px;
   animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .heroIllustration img {
@@ -553,44 +602,4 @@ section {
 #projects.animate .projectContainer {
   opacity: 1;
   transform: translateX(0);
-}
-
-@keyframes heroFadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.heroTexts span {
-  animation-delay: 0.1s;
-}
-.heroTexts h2 {
-  animation-delay: 0.2s;
-}
-.heroTexts h1 {
-  animation-delay: 0.4s;
-}
-.heroTexts h3 {
-  animation-delay: 0.6s;
-}
-.heroTexts p {
-  animation-delay: 0.8s;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
 }

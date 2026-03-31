@@ -13,7 +13,18 @@
 .rightGroup a svg {
   font-size: 1.5em;
   color: var(--text-color);
-  transition: all 0.25s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.rightGroup a:hover {
+  color: var(--highlight);
+  transform: translateY(-4px);
+  filter: drop-shadow(
+    0 4px 8px color-mix(in srgb, var(--highlight) 40%, transparent)
+  );
 }
 
 .footerWrapper {

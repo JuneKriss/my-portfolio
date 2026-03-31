@@ -13,12 +13,11 @@ import {
 } from "lucide-react";
 import { images, heroImages } from "../../assets/index.js";
 
-function Home() {
-  const [isLight, setIsLight] = useState(false);
-
+function Home({ isLight, setIsLight }) {
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   const nextIndex = (prev, length) => (prev + 1) % length;
 
+  const heroRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
@@ -32,17 +31,25 @@ function Home() {
   }, [heroImages.length]);
 
   useEffect(() => {
-    if (isLight) {
-      document.body.classList.add("light");
-    } else {
-      document.body.classList.remove("light");
+    // Trigger hero on first load
+    if (heroRef.current) {
+      heroRef.current.classList.add("animate");
     }
-  }, [isLight]);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // HERO SECTION
+          if (entry.target === heroRef.current) {
+            if (entry.isIntersecting) {
+              heroRef.current.classList.add("animate");
+            } else {
+              heroRef.current.classList.remove("animate");
+            }
+          }
+
           // ABOUT SECTION
           if (entry.target === aboutRef.current) {
             setIsAboutVisible(entry.isIntersecting);
@@ -61,6 +68,7 @@ function Home() {
       { threshold: 0.3 },
     );
 
+    if (heroRef.current) observer.observe(heroRef.current);
     if (aboutRef.current) observer.observe(aboutRef.current);
     if (projectsRef.current) observer.observe(projectsRef.current);
 
@@ -70,7 +78,7 @@ function Home() {
   return (
     <>
       <Navbar isLight={isLight} setIsLight={setIsLight} />
-      <section className="heroSection" id="home">
+      <section className="heroSection" id="home" ref={heroRef}>
         <div className="heroContent">
           <div className="heroTexts">
             <div className="group">
