@@ -53,6 +53,11 @@ function Home({ isLight, setIsLight }) {
           // ABOUT SECTION
           if (entry.target === aboutRef.current) {
             setIsAboutVisible(entry.isIntersecting);
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                aboutRef.current?.classList.add("done");
+              }, 1200);
+            }
           }
 
           // PROJECTS SECTION
@@ -88,6 +93,10 @@ function Home({ isLight, setIsLight }) {
             <h1>DEVELOPER</h1>
             <h3>WEB & MOBILE</h3>
             <p>I build clean, user-friendly applications.</p>
+
+            <Link to="/projects" className="hero-projects-button">
+              View Projects
+            </Link>
           </div>
           <div className="heroIllustration">
             <img src={images.blob} alt="Blob" className="blob" />

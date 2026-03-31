@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .footer .rightGroup {
@@ -19,7 +23,7 @@
     filter 0.3s ease;
 }
 
-.rightGroup a:hover {
+.rightGroup a:hover svg {
   color: var(--highlight);
   transform: translateY(-4px);
   filter: drop-shadow(
@@ -27,9 +31,73 @@
   );
 }
 
+.rightGroup a:active svg {
+  transform: translateY(-1px) scale(0.9);
+  filter: drop-shadow(
+    0 2px 4px color-mix(in srgb, var(--highlight) 60%, transparent)
+  );
+  transition:
+    transform 0.08s ease,
+    filter 0.08s ease;
+}
+
+.emailWrapper {
+  position: relative;
+}
+
+.copiedTooltip {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--highlight);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: fadeInOut 2s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .footerWrapper {
   position: relative;
   overflow: hidden;
+}
+
+.footerWrapper:not(.in-view) .footer {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.footerWrapper.in-view .footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footerWrapper.in-view .leftGroup {
+  transition-delay: 0.2s;
+}
+
+.footerWrapper.in-view .rightGroup {
+  transition-delay: 0.4s;
 }
 
 .footerCover {

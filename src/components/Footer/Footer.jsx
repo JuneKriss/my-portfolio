@@ -8,15 +8,25 @@ import { cats } from "../../assets/index.js";
 
 function Footer() {
   const footerRef = useRef(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("junekriss.avanzado@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // FOOTER SECTION
           if (entry.target === footerRef.current) {
             if (entry.isIntersecting) {
               footerRef.current.classList.add("animate");
+              footerRef.current.classList.add("in-view");
+            } else {
+              footerRef.current.classList.remove("in-view"); // re-triggers every scroll
             }
           }
         });
@@ -42,19 +52,36 @@ function Footer() {
             </div>
 
             <div className="rightGroup">
-              <a href="#">
+              <a
+                href="https://www.linkedin.com/in/june-kriss-avanzado-05535837a"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaLinkedin />
               </a>
-              <a href="#">
+              <a
+                href="https://github.com/JuneKriss"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaGithub />
               </a>
-              <a href="#">
+              <a href="#" onClick={handleEmailClick} className="emailWrapper">
                 <MdEmail />
+                {copied && <span className="copiedTooltip">Copied!</span>}
               </a>
-              <a href="#">
+              <a
+                href="https://www.facebook.com/june.avanzado"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaFacebook />
               </a>
-              <a href="#">
+              <a
+                href="https://www.instagram.com/june4kriss/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaInstagram />
               </a>
             </div>

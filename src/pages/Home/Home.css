@@ -105,6 +105,59 @@ section {
   font-size: 0.875em;
 }
 
+.hero-projects-button {
+  background-color: var(--highlight);
+  color: #e5e5e5;
+  padding: 0.5rem 2.5rem;
+  border-radius: 50px;
+  width: fit-content;
+  text-decoration: none;
+  margin-top: 1em;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    box-shadow 0.18s ease;
+}
+
+.hero-projects-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(-105%);
+  transition: transform 0.28s ease;
+  border-radius: 50px;
+}
+
+.hero-projects-button:hover::before {
+  transform: translateX(0);
+}
+
+.hero-projects-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--highlight) 45%, transparent);
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease;
+  transition-delay: 0s;
+}
+
+.hero-projects-button:active::before {
+  background: rgba(0, 0, 0, 0.12);
+  transform: translateX(0);
+  transition: none;
+}
+
+.heroSection.animate .hero-projects-button {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1s;
+}
+
 .heroIllustration {
   position: relative;
   width: 30%;
@@ -345,11 +398,9 @@ section {
 
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.5s ease;
-}
-
-.experience:hover {
-  transform: translateX(6px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .experience ul {
@@ -384,6 +435,16 @@ section {
 
 #about.show .experience:nth-child(3) {
   transition-delay: 0.8s;
+}
+
+#about.show .experience:hover {
+  transform: translateX(6px);
+}
+
+#about.show.done .experience:nth-child(1),
+#about.show.done .experience:nth-child(2),
+#about.show.done .experience:nth-child(3) {
+  transition-delay: 0s;
 }
 
 .stackContainer {
