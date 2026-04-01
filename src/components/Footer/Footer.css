@@ -148,12 +148,12 @@
 @media (max-width: 639px) {
   .footer {
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.5rem;
     text-align: center;
   }
 
   .footer .rightGroup {
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .rightGroup a svg {
