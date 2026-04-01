@@ -2,7 +2,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2.5rem;
+  padding: 0.8rem 2.5rem 1rem;
+  border-bottom: 1px solid var(--card-stroke);
+  box-shadow: var(--navbar-shadow);
 }
 
 .leftGroup {
@@ -50,7 +52,7 @@ nav {
 
 .navbar-links a:hover {
   background-color: var(--highlight);
-  color: var(--highlight-text);
+  color: #e5e5e5;
 }
 
 .modeToggle {
@@ -80,9 +82,115 @@ nav {
   transform: rotate(0deg) scale(0.9);
 }
 
-.burger {
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.burgerBtn {
   display: none;
-  flex-direction: column;
+  background: none;
+  border: none;
   cursor: pointer;
-  gap: 5px;
+}
+
+.drawerOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 98;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawerOverlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: 260px;
+  background: var(--bg-color);
+  border-left: 1px solid var(--card-stroke);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.drawerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.drawerHeader .modeToggle,
+.drawerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawerClose {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.drawer-links a {
+  display: block;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 200;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.drawer-links a:hover {
+  background-color: var(--highlight);
+  color: #e5e5e5;
+}
+
+@media (max-width: 767px) {
+  nav {
+    padding: 0.5rem 1.25rem 1rem;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .burgerBtn {
+    display: flex;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
 }

@@ -213,7 +213,7 @@ section {
   position: relative;
   gap: 6rem;
   align-items: flex-start;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
 }
 
 .projectsContent {
@@ -221,7 +221,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
 }
 
 .aboutContent::before,
@@ -349,7 +349,7 @@ section {
 }
 
 .schoolContainer {
-  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  border-left: 2px solid var(--border-soft);
   padding-left: 0.75rem;
   line-height: 1.7;
   transition:
@@ -393,7 +393,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  border-left: 2px solid var(--border-soft);
   padding-left: 0.75rem;
 
   opacity: 0;

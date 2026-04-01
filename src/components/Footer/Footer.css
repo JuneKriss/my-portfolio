@@ -144,3 +144,19 @@
     transform: translateX(100%);
   }
 }
+
+@media (max-width: 639px) {
+  .footer {
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .footer .rightGroup {
+    gap: 1.25rem;
+  }
+
+  .rightGroup a svg {
+    font-size: 1.75em;
+  }
+}

@@ -8,9 +8,10 @@
   --text-color: #e5e5e5;
   --supporting-text: #bdbdbd;
   --highlight: #2845d6;
-  --highlight-text: #fff;
   --card-bg: #1f1f1f;
   --card-stroke: #2d2d2d;
+  --border-soft: rgba(255, 255, 255, 0.15);
+  --navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 
   color-scheme: light dark;
 
@@ -27,6 +28,8 @@ body.light {
   --highlight: #2845d6;
   --card-bg: #f5f5f5;
   --card-stroke: #e0e0e0;
+  --border-soft: rgba(0, 0, 0, 0.15);
+  --navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 * {
