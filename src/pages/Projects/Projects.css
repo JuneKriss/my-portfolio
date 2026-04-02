@@ -298,3 +298,83 @@
   object-fit: contain;
   padding: 2rem;
 }
+
+@media (max-width: 767px) {
+  .projectsTitle {
+    font-size: 2.2em;
+  }
+
+  .imageContainer {
+    height: 280px;
+    border-radius: 12px;
+  }
+
+  .project-images {
+    border-radius: 12px;
+  }
+
+  .projectCard-container {
+    gap: 3rem;
+  }
+
+  .projectDescription h2 {
+    font-size: 1.2em;
+  }
+
+  .projectDescription p {
+    font-size: 1em;
+  }
+
+  .githubButton span {
+    font-size: 1em;
+  }
+
+  .github-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .projectsTitle {
+    font-size: 2.5em;
+  }
+
+  .imageContainer {
+    height: 340px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .projectsTitle {
+    font-size: 2.5em;
+  }
+
+  .imageContainer {
+    height: 420px;
+  }
+
+  .projectCard-container {
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .imageContainer {
+    height: 500px;
+  }
+
+  .projectsTitle {
+    font-size: 2.8em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .imageContainer {
+    height: 600px;
+  }
+
+  .projectsTitle {
+    font-size: 3em;
+  }
+}

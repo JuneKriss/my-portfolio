@@ -38,46 +38,57 @@ function Home({ isLight, setIsLight }) {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const heroObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // HERO SECTION
-          if (entry.target === heroRef.current) {
-            if (entry.isIntersecting) {
-              heroRef.current.classList.add("animate");
-            } else {
-              heroRef.current.classList.remove("animate");
-            }
-          }
-
-          // ABOUT SECTION
-          if (entry.target === aboutRef.current) {
-            setIsAboutVisible(entry.isIntersecting);
-            if (entry.isIntersecting) {
-              setTimeout(() => {
-                aboutRef.current?.classList.add("done");
-              }, 1200);
-            }
-          }
-
-          // PROJECTS SECTION
-          if (entry.target === projectsRef.current) {
-            if (entry.isIntersecting) {
-              projectsRef.current.classList.add("animate");
-            } else {
-              projectsRef.current.classList.remove("animate");
-            }
+          if (entry.isIntersecting) {
+            heroRef.current.classList.add("animate");
+          } else {
+            heroRef.current.classList.remove("animate");
           }
         });
       },
       { threshold: 0.3 },
     );
 
-    if (heroRef.current) observer.observe(heroRef.current);
-    if (aboutRef.current) observer.observe(aboutRef.current);
-    if (projectsRef.current) observer.observe(projectsRef.current);
+    const aboutObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            aboutRef.current?.classList.add("show");
+            setTimeout(() => {
+              aboutRef.current?.classList.add("done");
+            }, 1200);
+          } else {
+            aboutRef.current?.classList.remove("show", "done");
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
 
-    return () => observer.disconnect();
+    const projectsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            projectsRef.current.classList.add("animate");
+          } else {
+            projectsRef.current.classList.remove("animate");
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    if (heroRef.current) heroObserver.observe(heroRef.current);
+    if (aboutRef.current) aboutObserver.observe(aboutRef.current);
+    if (projectsRef.current) projectsObserver.observe(projectsRef.current);
+
+    return () => {
+      heroObserver.disconnect();
+      aboutObserver.disconnect();
+      projectsObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -110,11 +121,7 @@ function Home({ isLight, setIsLight }) {
           </div>
         </div>
       </section>
-      <section
-        id="about"
-        ref={aboutRef}
-        className={isAboutVisible ? "show" : ""}
-      >
+      <section id="about" ref={aboutRef}>
         <div className="aboutContent">
           <div className="leftContent">
             <h1>About</h1>

@@ -671,9 +671,12 @@ section {
   transform: translateX(0);
 }
 
-/* RESPONSIVE HERO SECTION */
+/* RESPONSIVE SECTION */
 
 @media (max-width: 767px) {
+  section {
+    width: 100%;
+  }
   .heroSection {
     padding: 6rem 1.25rem 3rem;
   }
@@ -706,9 +709,69 @@ section {
   .heroTexts span {
     font-size: 1em;
   }
+
+  /* About */
+  .aboutContent {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #about .leftContent,
+  #about .rightContent {
+    flex: none;
+    width: 100%;
+  }
+
+  .leftContent p {
+    max-width: 100%;
+  }
+
+  .leftContent h1,
+  .projectHead h1 {
+    font-size: 2.2em;
+  }
+
+  .school,
+  .company {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .school p,
+  .company p {
+    white-space: normal;
+  }
+
+  .experience .company {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  /* Projects */
+  .projectHead h1 {
+    font-size: 2.2em;
+  }
+
+  .projectCard {
+    min-width: 220px;
+    max-width: 260px;
+  }
+
+  .projectIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .projectCard h3 {
+    font-size: 0.95em;
+  }
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
+  section {
+    max-width: 475px;
+  }
   .heroTexts h2 {
     font-size: 3em;
   }
@@ -718,9 +781,27 @@ section {
   .heroTexts h3 {
     font-size: 1.6em;
   }
+
+  .leftContent h1,
+  .projectHead h1 {
+    font-size: 2.5em;
+  }
+
+  /* Projects */
+  .projectHead h1 {
+    font-size: 2.5em;
+  }
+
+  .projectCard {
+    min-width: 260px;
+    max-width: 300px;
+  }
 }
 
 @media (min-width: 768px) {
+  section {
+    max-width: 640px;
+  }
   .heroSection {
     padding: 8rem 1.5rem;
   }
@@ -736,9 +817,45 @@ section {
   .heroTexts p {
     white-space: nowrap;
   }
+
+  /* About */
+  .aboutContent {
+    gap: 3rem;
+  }
+
+  .leftContent h1,
+  .projectHead h1 {
+    font-size: 2.5em;
+  }
+
+  .school,
+  .company {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .school p,
+  .company p {
+    white-space: normal;
+  }
+
+  .experience .company {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  /* Projects */
+  .projectCard {
+    min-width: 280px;
+    max-width: 340px;
+  }
 }
 
 @media (min-width: 1024px) {
+  section {
+    max-width: 768px;
+  }
   .heroSection {
     padding: 8rem 3rem;
   }
@@ -751,9 +868,22 @@ section {
   .heroTexts h3 {
     font-size: 2em;
   }
+
+  /* About */
+  .aboutContent {
+    gap: 4rem;
+  }
+
+  .leftContent h1,
+  .projectHead h1 {
+    font-size: 2.8em;
+  }
 }
 
 @media (min-width: 1280px) {
+  section {
+    max-width: 1024px;
+  }
   .heroSection {
     padding: 8rem 4rem;
   }
@@ -772,9 +902,44 @@ section {
   .heroTexts p {
     font-size: 0.95em;
   }
+
+  /* About */
+  .aboutContent {
+    gap: 6rem;
+  }
+
+  .leftContent h1,
+  .projectHead h1 {
+    font-size: 3em;
+  }
+
+  .school,
+  .company {
+    flex-direction: row;
+  }
+
+  .school p,
+  .company p {
+    white-space: nowrap;
+  }
+
+  /* Projects */
+  .projectCard {
+    min-width: 320px;
+    max-width: 400px;
+  }
+
+  .projectIcon {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 @media (min-width: 1536px) {
+  section {
+    max-width: 1280px;
+  }
+
   .heroSection {
     padding: 10rem 6rem;
   }
@@ -795,4 +960,4 @@ section {
   }
 }
 
-/* RESPONSIVE HERO SECTION */
+/* RESPONSIVE SECTION */
