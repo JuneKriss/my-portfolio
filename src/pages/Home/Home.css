@@ -8,7 +8,8 @@ section {
 }
 
 .heroSection {
-  padding: 8rem 1.5rem;
+  max-width: 85%;
+  padding: 8rem 4rem;
   opacity: 0;
   transform: translateY(40px);
   transition:
@@ -25,13 +26,15 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .heroTexts {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  min-width: 0;
+  flex: 1;
 }
 
 .heroTexts h1,
@@ -160,8 +163,11 @@ section {
 
 .heroIllustration {
   position: relative;
-  width: 30%;
-  height: 700px;
+  flex-shrink: 0;
+  width: clamp(280px, 45vw, 600px);
+  height: clamp(280px, 40vw, 700px);
+  overflow: visible;
+  isolation: isolate;
   animation: float 5s ease-in-out infinite;
 }
 
@@ -185,7 +191,7 @@ section {
 
 .heroIllustration .blob {
   z-index: 1;
-  width: 950px;
+  width: clamp(320px, 55vw, 950px);
 
   opacity: 0.85;
   filter: blur(1px);
@@ -194,7 +200,7 @@ section {
 
 .heroIllustration .programming {
   z-index: 2;
-  width: 620px;
+  width: clamp(200px, 36vw, 650px);
   transition:
     opacity 1s ease,
     transform 1s ease;
@@ -664,3 +670,129 @@ section {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* RESPONSIVE HERO SECTION */
+
+@media (max-width: 767px) {
+  .heroSection {
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  .heroContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .heroTexts {
+    align-items: center;
+    order: 2;
+  }
+
+  .heroIllustration {
+    order: 1;
+  }
+
+  .heroTexts h2 {
+    font-size: 2.5em;
+  }
+  .heroTexts h1 {
+    font-size: 4.5em;
+  }
+  .heroTexts h3 {
+    font-size: 1.4em;
+  }
+  .heroTexts span {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .heroTexts h2 {
+    font-size: 3em;
+  }
+  .heroTexts h1 {
+    font-size: 5.5em;
+  }
+  .heroTexts h3 {
+    font-size: 1.6em;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding: 8rem 1.5rem;
+  }
+  .heroTexts h2 {
+    font-size: 2.3em;
+  }
+  .heroTexts h1 {
+    font-size: 4.5em;
+  }
+  .heroTexts h3 {
+    font-size: 1.6em;
+  }
+  .heroTexts p {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroSection {
+    padding: 8rem 3rem;
+  }
+  .heroTexts h2 {
+    font-size: 3em;
+  }
+  .heroTexts h1 {
+    font-size: 5.5em;
+  }
+  .heroTexts h3 {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .heroSection {
+    padding: 8rem 4rem;
+  }
+  .heroTexts span {
+    font-size: 1.5em;
+  }
+  .heroTexts h2 {
+    font-size: 3.5em;
+  }
+  .heroTexts h1 {
+    font-size: 6.5em;
+  }
+  .heroTexts h3 {
+    font-size: 2em;
+  }
+  .heroTexts p {
+    font-size: 0.95em;
+  }
+}
+
+@media (min-width: 1536px) {
+  .heroSection {
+    padding: 10rem 6rem;
+  }
+  .heroTexts span {
+    font-size: 1.8em;
+  }
+  .heroTexts h2 {
+    font-size: 5em;
+  }
+  .heroTexts h1 {
+    font-size: 8em;
+  }
+  .heroTexts h3 {
+    font-size: 2.5em;
+  }
+  .heroTexts p {
+    font-size: 1em;
+  }
+}
+
+/* RESPONSIVE HERO SECTION */
