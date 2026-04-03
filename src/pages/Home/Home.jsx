@@ -14,6 +14,10 @@ import {
 import { images, heroImages } from "../../assets/index.js";
 
 function Home({ isLight, setIsLight }) {
+  useEffect(() => {
+    document.title = "June Kriss - Portfolio";
+  }, []);
+
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   const nextIndex = (prev, length) => (prev + 1) % length;
   const MARQUEE_CARDS = [

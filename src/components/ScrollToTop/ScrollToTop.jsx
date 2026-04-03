@@ -16,6 +16,14 @@ export default function ScrollToTop() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [location.pathname]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setVisible(false);
+    const onScroll = () => setVisible(window.scrollY > SCROLL_THRESHOLD);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [location.pathname]);
+
   return (
     <button
       className={`scroll-to-top ${visible ? "visible" : ""}`}

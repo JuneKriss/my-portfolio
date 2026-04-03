@@ -14,6 +14,10 @@ import { FaGithub } from "react-icons/fa";
 import { cmmsImages, lawImages } from "../../assets/index.js";
 
 function Projects({ isLight, setIsLight }) {
+  useEffect(() => {
+    document.title = "Projects | June Kriss";
+  }, []);
+
   const [cmmsIndex, setCmmsIndex] = useState(0);
   const [lawIndex, setLawIndex] = useState(0);
   const [lightbox, setLightbox] = useState({
