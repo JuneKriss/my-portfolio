@@ -1,0 +1,40 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-stroke);
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    background 0.2s ease;
+  z-index: 999;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+  background: var(--highlight);
+  border-color: var(--highlight);
+}
+
+.scroll-to-top:active {
+  transform: scale(0.9);
+  background: var(--highlight);
+  border-color: var(--highlight);
+}

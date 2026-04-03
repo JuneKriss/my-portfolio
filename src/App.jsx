@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   const [isLight, setIsLight] = useState(false);
@@ -26,6 +27,7 @@ function App() {
           element={<Projects isLight={isLight} setIsLight={setIsLight} />}
         />
       </Routes>
+      <ScrollToTop />
     </Router>
   );
 }

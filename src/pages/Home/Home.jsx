@@ -16,11 +16,16 @@ import { images, heroImages } from "../../assets/index.js";
 function Home({ isLight, setIsLight }) {
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   const nextIndex = (prev, length) => (prev + 1) % length;
+  const MARQUEE_CARDS = [
+    { icon: LaptopMinimal, label: "Management Systems" },
+    { icon: ClipboardClock, label: "Appointment Systems" },
+    { icon: CalendarCheck, label: "Booking Systems" },
+    { icon: ClockArrowDown, label: "Ordering Systems" },
+  ];
 
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
-  const [isAboutVisible, setIsAboutVisible] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,7 +33,7 @@ function Home({ isLight, setIsLight }) {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [heroImages.length]);
+  }, []);
 
   useEffect(() => {
     // Trigger hero on first load
@@ -314,44 +319,28 @@ function Home({ isLight, setIsLight }) {
           </div>
           <div className="projectContainer">
             <div className="marquee-track">
-              <div className="marquee-set">
-                <div className="projectCard">
-                  <LaptopMinimal className="projectIcon" />
-                  <h3>Management Systems</h3>
+              {[0, 1].map((set) => (
+                <div className="marquee-set" key={set} aria-hidden={set === 1}>
+                  {MARQUEE_CARDS.map(({ icon: Icon, label }) => (
+                    <div className="projectCard" key={label}>
+                      <Icon className="projectIcon" />
+                      <h3>{label}</h3>
+                    </div>
+                  ))}
                 </div>
-                <div className="projectCard">
-                  <ClipboardClock className="projectIcon" />
-                  <h3>Appointment Systems</h3>
-                </div>
-                <div className="projectCard">
-                  <CalendarCheck className="projectIcon" />
-                  <h3>Booking Systems</h3>
-                </div>
-                <div className="projectCard">
-                  <ClockArrowDown className="projectIcon" />
-                  <h3>Ordering Systems</h3>
-                </div>
-              </div>
+              ))}
 
               {/* duplicate */}
-              <div className="marquee-set" aria-hidden="true">
-                <div className="projectCard">
-                  <LaptopMinimal className="projectIcon" />
-                  <h3>Management Systems</h3>
+              {[0, 1].map((set) => (
+                <div className="marquee-set" key={set} aria-hidden={set === 1}>
+                  {MARQUEE_CARDS.map(({ icon: Icon, label }) => (
+                    <div className="projectCard" key={label}>
+                      <Icon className="projectIcon" />
+                      <h3>{label}</h3>
+                    </div>
+                  ))}
                 </div>
-                <div className="projectCard">
-                  <ClipboardClock className="projectIcon" />
-                  <h3>Appointment Systems</h3>
-                </div>
-                <div className="projectCard">
-                  <CalendarCheck className="projectIcon" />
-                  <h3>Booking Systems</h3>
-                </div>
-                <div className="projectCard">
-                  <ClockArrowDown className="projectIcon" />
-                  <h3>Ordering Systems</h3>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

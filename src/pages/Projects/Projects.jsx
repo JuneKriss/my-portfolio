@@ -54,7 +54,7 @@ function Projects({ isLight, setIsLight }) {
           }
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.2 },
     );
 
     [titleRef, cmmsCardRef, lawCardRef, cmmsTextsRef, lawTextsRef].forEach(
