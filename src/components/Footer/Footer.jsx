@@ -53,7 +53,7 @@ function Footer() {
 
             <div className="rightGroup">
               <a
-                href="https://www.linkedin.com/in/june-kriss-avanzado-05535837a"
+                href="https://www.linkedin.com/in/june-kriss-avanzado/"
                 target="_blank"
                 rel="noreferrer"
               >
